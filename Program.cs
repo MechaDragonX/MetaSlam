@@ -10,14 +10,6 @@ namespace MetaSlam
 
         static void Main(string[] args)
         {
-            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 1");
-            Console.WriteLine();
-            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 2");
-            Console.WriteLine();
-            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 3");
-            Console.WriteLine();
-            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 4");
-            Console.WriteLine();
         }
         /// <summary>
         /// Name all audio files in a directory based on the file's metadata
