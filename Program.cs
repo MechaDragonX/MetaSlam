@@ -10,7 +10,6 @@ namespace MetaSlam
 
         static void Main(string[] args)
         {
-
         }
         /// <summary>
         /// Name all audio files in a directory based on the file's metadata
@@ -19,7 +18,10 @@ namespace MetaSlam
         private static void NameAudioDirectory(string path)
         {
             foreach(string file in Directory.EnumerateFiles(path))
-                NameAudioFile(file);
+            {
+                if(Path.GetFileNameWithoutExtension(path) != "folder")
+                    NameAudioFile(file);
+            }
         }
         /// <summary>
         /// Name Audio File Based on File's Metadata
