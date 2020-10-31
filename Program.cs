@@ -10,6 +10,7 @@ namespace MetaSlam
 
         static void Main(string[] args)
         {
+
         }
         /// <summary>
         /// Name all audio files in a directory based on the file's metadata
@@ -42,8 +43,7 @@ namespace MetaSlam
             name += extension;
             newPath += name;
 
-            Console.WriteLine(Path.GetFileName(name));
-            // File.Move(path, newPath);
+            File.Move(path, newPath);
         }
         /// <summary>
         /// Check the filename for illegal characters and the replace them with legal characters or remove them
