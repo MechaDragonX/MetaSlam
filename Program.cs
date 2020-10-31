@@ -6,11 +6,21 @@ namespace MetaSlam
 {
     class Program
     {
+        private static char[] illegalChar = { '<', '>', ':', '"', '/', '\\', '|', '?', '*' };
+
         static void Main(string[] args)
         {
+            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 1");
+            Console.WriteLine();
+            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 2");
+            Console.WriteLine();
+            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 3");
+            Console.WriteLine();
+            NameAudioDirectory("D:/Music/John Williams Jurassic Park Collection - John Williams - 2016/Disc 4");
+            Console.WriteLine();
         }
-		/// <summary>
-        /// Name All Audio Files in a Directory Based on the Fiel's Metadata
+        /// <summary>
+        /// Name all audio files in a directory based on the file's metadata
         /// </summary>
         /// <param name="path">Path to File</param>
         private static void NameAudioDirectory(string path)
@@ -36,10 +46,44 @@ namespace MetaSlam
             name += track.Title;
             if(track.Artist != track.AlbumArtist)
                 name += $" - {track.Artist}";
+            name = checkFixFilename(name);
             name += extension;
             newPath += name;
 
-            File.Move(path, newPath);
+            Console.WriteLine(Path.GetFileName(name));
+            // File.Move(path, newPath);
+        }
+        /// <summary>
+        /// Check the filename for illegal characters and the replace them with legal characters or remove them
+        /// </summary>
+        /// <param name="name">Filename Without Extension</param>
+        /// <returns></returns>
+        private static string checkFixFilename(string name)
+        {
+            for(int i = 0; i < illegalChar.Length; i++)
+            {
+                if(name.Contains(illegalChar[i]))
+                {
+                    switch(illegalChar[i])
+                    {
+                        case '<':
+                        case '>':
+                        case '/':
+                        case '\\':
+                        case '|':
+                        case '*':
+                            name = name.Replace(illegalChar[i], '-');
+                            break;
+                        case '"':
+                            name = name.Replace(illegalChar[i], '\'');
+                            break;
+                        case '?':
+                            name = name.Remove(name.IndexOf(illegalChar[i]), 1);
+                            break;
+                    }
+                }
+            }
+            return name;
         }
     }
 }
