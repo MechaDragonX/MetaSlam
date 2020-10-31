@@ -19,7 +19,7 @@ namespace MetaSlam
         {
             foreach(string file in Directory.EnumerateFiles(path))
             {
-                if(Path.GetFileNameWithoutExtension(path) != "folder")
+                if(Path.GetFileNameWithoutExtension(file) != "folder")
                     NameAudioFile(file);
             }
         }
