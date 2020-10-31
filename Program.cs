@@ -39,7 +39,7 @@ namespace MetaSlam
             name += track.Title;
             if(track.Artist != track.AlbumArtist)
                 name += $" - {track.Artist}";
-            name = checkFixFilename(name);
+            name = CheckFixFilename(name);
             name += extension;
             newPath += name;
 
@@ -50,7 +50,7 @@ namespace MetaSlam
         /// </summary>
         /// <param name="name">Filename Without Extension</param>
         /// <returns></returns>
-        private static string checkFixFilename(string name)
+        private static string CheckFixFilename(string name)
         {
             for(int i = 0; i < illegalChar.Length; i++)
             {
