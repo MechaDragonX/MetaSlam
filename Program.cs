@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -96,7 +95,6 @@ namespace MetaSlam
         }
         private static bool ValidatePath(string path)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
             if(Directory.GetFiles(path).Length == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -104,7 +102,7 @@ namespace MetaSlam
                 Console.ResetColor();
                 return false;
             }
-            else if (Directory.GetFiles(path).Length > 0)
+            else if(Directory.GetFiles(path).Length > 0)
             {
                 Console.ResetColor();
                 return true;

@@ -8,7 +8,7 @@ namespace MetaSlam
         /// <summary>
         /// Name all audio files in a directory based on the file's metadata
         /// </summary>
-        /// <param name="path">Path to File</param>
+        /// <param name="path">Path to Directory</param>
         public static void NameDirectory(string path)
         {
             foreach(string file in Directory.EnumerateFiles(path))
@@ -18,7 +18,7 @@ namespace MetaSlam
             }
         }
         /// <summary>
-        /// Name Audio File Based on File's Metadata
+        /// Name audio file based on file's metadata
         /// </summary>
         /// <param name="path">Path to File</param>
         private static void NameFile(string path)
